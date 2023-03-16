@@ -1,12 +1,13 @@
-import Container from './components/Container/Container'
 import Router from './router'
+import store from './redux'
 import './root.css'
+import { Provider } from 'react-redux'
 
 function App() {
   return (
-    <Container>
+    <Provider store={store}>
       <Router />
-    </Container>
+    </Provider>
   )
 }
 

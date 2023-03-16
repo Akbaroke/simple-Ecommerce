@@ -7,6 +7,7 @@ import {
 import Topbar from '../components/Topbar/Topbar'
 import Cart from '../pages/Cart/Cart'
 import Home from '../pages/Home/Home'
+import Layout from '../components/Layout'
 
 export default function index() {
   return (
@@ -16,18 +17,18 @@ export default function index() {
           exact
           path="/"
           element={
-            <Topbar>
+            <Layout>
               <Home />
-            </Topbar>
+            </Layout>
           }
         />
         <Route
           exact
           path="/cart"
           element={
-            <Topbar>
+            <Layout>
               <Cart />
-            </Topbar>
+            </Layout>
           }
         />
       </Routes>

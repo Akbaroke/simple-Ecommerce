@@ -1,3 +1,4 @@
+.cardSelect,
 .card {
   width: 170px;
   height: 229px;
@@ -5,36 +6,80 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  position: relative;
+  border: 1px solid #f3f3f3;
 
   & > img {
     width: 110px;
     height: 88px;
   }
+}
 
-  .body {
+.cardSelect {
+  border: 1px solid #21331d;
+}
+
+.body {
+  width: 100%;
+  display: inline-block;
+
+  h2 {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: 9px;
+  }
+
+  .stock {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
-    display: inline-block;
 
-    h2 {
-      font-size: 14px;
-      font-weight: 600;
-      text-transform: capitalize;
-      margin-bottom: 9px;
+    & > p {
+      font-size: 12px;
+      font-weight: 500;
     }
 
-    .stock {
+    & > div {
       display: flex;
-      justify-content: space-between;
-      width: 100%;
+      align-items: center;
+      gap: 2px;
 
-      & > p {
+      svg {
+        color: #94989e;
+        width: 12px;
+        height: 12px;
+        stroke-width: 1.5;
+      }
+
+      p {
+        color: #94989e;
         font-size: 12px;
         font-weight: 500;
       }
-
-      & > div {
-        display: flex;
-      }
     }
+  }
+}
+
+.btnPlusCart {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  width: 16px;
+  height: 16px;
+  box-sizing: content-box;
+  padding: 7px;
+  color: #21331d;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid #fff;
+
+  &:hover {
+    border: 1px solid #f3f3f3;
+  }
+
+  &:active {
+    background-color: #f3f3f3;
   }
 }

@@ -3,5 +3,16 @@
 * {
   font-family: 'Barlow', sans-serif !important;
   box-sizing: border-box;
+  outline: none;
+  border: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+label {
   color: #21331d;
 }

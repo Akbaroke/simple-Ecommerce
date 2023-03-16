@@ -1,10 +1,14 @@
 .topbar {
-  height: 83px;
-  padding: 0 20px;
+  height: 70px;
+  padding: 0 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #f3f3f3;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 
   .logo {
     width: 20px;
@@ -14,6 +18,10 @@
     position: relative;
     width: 32px;
     height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #21331d;
 
     & > span {
       position: absolute;
@@ -24,10 +32,9 @@
       color: #fff;
       font-size: 8px;
       text-align: center;
-      padding-top: 3px;
-      padding-left: 1px;
-      top: -8px;
-      left: 20px;
+      padding-top: 2px;
+      top: 4px;
+      right: 0;
     }
   }
 }

@@ -1,0 +1,124 @@
+.bgBlur {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #22341d40;
+  backdrop-filter: blur(2px);
+  z-index: 30;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background-color: #fff;
+  padding: 40px;
+  width: 90%;
+  height: 490px;
+  position: absolute;
+  bottom: 50px;
+  text-align: center;
+
+  & > h1 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 600;
+    size: 20px;
+    padding: 8px 20px;
+    border-bottom: 1px solid #f3f3f3;
+    width: max-content;
+    margin-bottom: 10px;
+  }
+
+  & > form {
+    width: 100%;
+    text-align: start;
+    padding: 0 10px;
+    position: relative;
+    margin-bottom: 70px;
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 25px;
+
+      label {
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      input {
+        width: 100%;
+        height: 40px;
+        padding: 11px 18px;
+        border: 1px solid #f3f3f3;
+        font-size: 14px;
+        font-weight: 500;
+
+        &::placeholder {
+          color: #d6d6d6;
+        }
+      }
+    }
+
+    .linkDelete {
+      position: absolute;
+      right: 10px;
+      bottom: -25px;
+      font-size: 12px;
+      text-decoration: underline;
+      color: #f42d67;
+    }
+  }
+
+  .btn {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+.delete {
+  margin-bottom: 35%;
+
+  .trashIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f42d67;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    transition: all 0.3s;
+    animation: blip 1s ease-in-out infinite;
+    margin: 40px auto;
+
+    svg {
+      width: 25px;
+      height: 25px;
+      color: #fff;
+    }
+  }
+
+  .deleteInfo {
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-weight: 400;
+
+    b {
+      font-weight: 700;
+    }
+  }
+}
+
+@keyframes blip {
+  0% {
+    outline: 0px solid #f42d6740;
+  }
+
+  100% {
+    outline: 20px solid #f42d6700;
+  }
+}
