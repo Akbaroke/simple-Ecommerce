@@ -1,0 +1,33 @@
+.topbar {
+  height: 83px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f3f3f3;
+
+  .logo {
+    width: 20px;
+  }
+
+  .cart {
+    position: relative;
+    width: 32px;
+    height: 38px;
+
+    & > span {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #f42d67;
+      color: #fff;
+      font-size: 8px;
+      text-align: center;
+      padding-top: 3px;
+      padding-left: 1px;
+      top: -8px;
+      left: 20px;
+    }
+  }
+}

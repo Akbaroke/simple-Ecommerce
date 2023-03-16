@@ -1,0 +1,40 @@
+.card {
+  width: 170px;
+  height: 229px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & > img {
+    width: 110px;
+    height: 88px;
+  }
+
+  .body {
+    width: 100%;
+    display: inline-block;
+
+    h2 {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: capitalize;
+      margin-bottom: 9px;
+    }
+
+    .stock {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      & > p {
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      & > div {
+        display: flex;
+      }
+    }
+  }
+}
