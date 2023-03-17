@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Container from './Container/Container'
 import Topbar from './Topbar/Topbar'
 import Alert from './Alert'
 import Modal from './Modal'
 import { useSelector } from 'react-redux'
+import SaveCart from '../services/SaveCart'
 
 export default function Layout({ children }) {
   const { isOpen } = useSelector(state => state.modal)
+  const cart = useSelector(state => state.cart)
+
+  useEffect(() => {
+    SaveCart(cart)
+  }, [cart])
+
   return (
     <Container>
       <Alert />

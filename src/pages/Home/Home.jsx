@@ -10,8 +10,6 @@ import {
   modalAdd,
   modalEdit,
 } from '../../redux/actions/modal'
-import SaveCart from '../../services/SaveCart'
-import RestoreCart from '../../services/RestoreCart'
 
 export default function Home() {
   const [products, setProducts] = useState([])
@@ -32,10 +30,6 @@ export default function Home() {
       setLoading(false)
     }
   }, [data])
-
-  useEffect(() => {
-    SaveCart(cart)
-  }, [cart])
 
   return loading ? (
     <h1>Loading...</h1>

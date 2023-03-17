@@ -14,6 +14,7 @@
     width: 20px;
   }
 
+  .cartFocus,
   .cart {
     position: relative;
     width: 32px;
@@ -22,6 +23,8 @@
     justify-content: center;
     align-items: center;
     color: #21331d;
+    cursor: pointer;
+    transition: all .3s;
 
     & > span {
       position: absolute;
@@ -36,5 +39,15 @@
       top: 4px;
       right: 0;
     }
+  }
+
+  .cartFocus::after{
+    content: "";
+    width: 45px;
+    height: 2px;
+    display: block;
+    position: absolute;
+    background-color: #21331d;
+    bottom: -16px;
   }
 }

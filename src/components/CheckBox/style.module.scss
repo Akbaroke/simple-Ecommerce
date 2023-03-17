@@ -1,0 +1,24 @@
+.checkActive,
+.check {
+  display: block;
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+  border: 1px solid #e4e4e4;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.checkActive {
+  background-color: #21331d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+
+  svg {
+    width: 11px;
+    height: 11px;
+    stroke-width: 3.5;
+  }
+}
