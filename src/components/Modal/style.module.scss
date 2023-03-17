@@ -1,9 +1,8 @@
-.bgBlur {
+.bg {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #22341d40;
-  backdrop-filter: blur(2px);
+  background-color: transparent;
   z-index: 30;
   display: flex;
   justify-content: center;
@@ -18,6 +17,7 @@
   position: absolute;
   bottom: 50px;
   text-align: center;
+  z-index: 40;
 
   & > h1 {
     display: inline-block;
@@ -56,6 +56,10 @@
         font-size: 14px;
         font-weight: 500;
 
+        &:focus{
+          border: 1px solid #21331D;
+        }
+
         &::placeholder {
           color: #d6d6d6;
         }
@@ -69,6 +73,7 @@
       font-size: 12px;
       text-decoration: underline;
       color: #f42d67;
+      cursor: pointer;
     }
   }
 

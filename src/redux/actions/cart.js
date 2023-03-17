@@ -9,17 +9,19 @@ export const addCart = (name, price, id) => ({
   },
 })
 
-export const incrementCart = id => ({
+export const incrementCart = (id, price) => ({
   type: ActionType.INCREMENT_CART,
   payload: {
     id,
+    price,
   },
 })
 
-export const decrementCart = id => ({
+export const decrementCart = (id, price) => ({
   type: ActionType.DECREMENT_CART,
   payload: {
     id,
+    price,
   },
 })
 

@@ -15,6 +15,7 @@ import {
   alertClose,
   alertSuccess,
 } from '../../redux/actions/alert'
+import SaveCart from '../../services/SaveCart'
 
 export default function CardProduct({
   id,
@@ -28,7 +29,7 @@ export default function CardProduct({
   const handleAddCart = (id, name, price, stock) => {
     if (stock > 0) {
       if (isCart) {
-        dispatch(incrementCart(id))
+        dispatch(incrementCart(id, price))
         dispatch(
           alertSuccess('Successfully added to cart.')
         )

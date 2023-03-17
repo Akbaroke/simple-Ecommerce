@@ -1,33 +1,30 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import style from './style.module.scss'
 import AddProduct from './AddProduct'
 import EditProduct from './EditProduct'
 import ConfirmDelete from './ConfirmDelete'
-import { useDispatch, useSelector } from 'react-redux'
-import { modalClose } from '../../redux/actions/modal'
+import { useSelector } from 'react-redux'
 import Animated from 'react-mount-animation'
 import globalType from '../../globalType'
 
 export default function Modal() {
-  const { isOpen, type } = useSelector(state => state.modal)
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    isOpen &&
-      setTimeout(() => {
-        dispatch(modalClose())
-      }, 5000)
-  }, [isOpen])
+  const { isOpen, type, data } = useSelector(
+    state => state.modal
+  )
 
   return (
     <Animated.div
       show={isOpen}
       mountAnim={mountAnimation1}
       time={0.5}
-      className={style.bgBlur}>
+      className={style.bg}>
       {type === globalType.ADD && <AddProduct />}
-      {type === globalType.EDIT && <EditProduct />}
-      {type === globalType.DELETE && <ConfirmDelete />}
+      {type === globalType.EDIT && (
+        <EditProduct data={data} />
+      )}
+      {type === globalType.DELETE && (
+        <ConfirmDelete data={data} />
+      )}
     </Animated.div>
   )
 }

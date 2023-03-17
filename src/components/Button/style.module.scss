@@ -1,0 +1,33 @@
+.button {
+  background-color: #fff;
+  border: 1px solid #21331d;
+  width: 130px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #21331d;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.buttonSolid {
+  position: relative;
+  background-color: #21331d;
+  width: 130px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  text-transform: capitalize;
+
+  & > svg {
+    animation: rotate 1s linear infinite;
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}

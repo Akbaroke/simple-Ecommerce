@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import CardProduct from '../../components/CardProduct/CardProduct'
-import useSWR, { useSWRConfig } from 'swr'
+import useSWR from 'swr'
 import axios from '../../api'
 import Decrypt from '../../utils/Decrypt'
 import style from './style.module.scss'
-import { useSelector } from 'react-redux'
-import { IconPlus, IconTrash } from '@tabler/icons-react'
+import { useDispatch, useSelector } from 'react-redux'
+import { IconPlus } from '@tabler/icons-react'
+import {
+  modalAdd,
+  modalEdit,
+} from '../../redux/actions/modal'
+import SaveCart from '../../services/SaveCart'
+import RestoreCart from '../../services/RestoreCart'
 
 export default function Home() {
-  const { mutate } = useSWRConfig()
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
   const cart = useSelector(state => state.cart)
-  const [selectProduct, setSelectProduct] = useState('')
+  const modal = useSelector(state => state.modal)
+  const dispatch = useDispatch()
 
   const fetcher = async () => {
     const { data } = await axios.get('/products')
@@ -27,6 +33,10 @@ export default function Home() {
     }
   }, [data])
 
+  useEffect(() => {
+    SaveCart(cart)
+  }, [cart])
+
   return loading ? (
     <h1>Loading...</h1>
   ) : (
@@ -40,7 +50,12 @@ export default function Home() {
             <div
               key={index + 1}
               onClick={() => {
-                setSelectProduct(data.idProduct)
+                dispatch(
+                  modalEdit({
+                    id: data.idProduct,
+                    name: data.namaProduct,
+                  })
+                )
               }}>
               <CardProduct
                 id={data.idProduct}
@@ -48,13 +63,15 @@ export default function Home() {
                 price={data.harga}
                 stock={data.stok}
                 isCart={result}
-                isSelect={selectProduct === data.idProduct}
+                isSelect={modal.data.id === data.idProduct}
               />
             </div>
           )
         })}
       </div>
-      <div className={style.btn}>
+      <div
+        className={style.btn}
+        onClick={() => dispatch(modalAdd())}>
         <button>
           <IconPlus />
         </button>

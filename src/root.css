@@ -16,3 +16,25 @@ a,
 label {
   color: #21331d;
 }
+
+/* Scroll Bar */
+::-webkit-scrollbar {
+  width: 2px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+  width: 2px;
+}
+::-webkit-scrollbar-thumb {
+  background: #21331d40;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #21331d40;
+}
+@media (max-width: 425px) {
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    width: 2px;
+  }
+}

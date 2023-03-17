@@ -1,6 +1,13 @@
 import React from 'react'
-import style from './style.module.scss'
 
 export default function Container({ children }) {
-  return <div className={style.container}>{children}</div>
+  return <div style={style}>{children}</div>
+}
+
+const style = {
+  position: 'relative',
+  maxWidth: 428,
+  height: '100vh',
+  overflow: 'hidden',
+  margin: 'auto',
 }

@@ -1,6 +1,7 @@
+import RestoreCart from '../../services/RestoreCart'
 import ActionType from '../actionType'
 
-const initState = {
+const initState = RestoreCart() ?? {
   count: 0,
   total: 0,
   data: [],
@@ -22,6 +23,7 @@ const reducerCart = (state = initState, action) => {
       return {
         ...state,
         count: state.count + 1,
+        total: state.total + price,
         data: newData,
       }
     case ActionType.INCREMENT_CART:
@@ -37,6 +39,7 @@ const reducerCart = (state = initState, action) => {
       })
       return {
         ...state,
+        total: state.total + action.payload.price,
         data: updateDataIncrement,
       }
     case ActionType.DECREMENT_CART:
@@ -52,16 +55,24 @@ const reducerCart = (state = initState, action) => {
       })
       return {
         ...state,
+        total: state.total - action.payload.price,
         data: updateDataDecrement,
       }
     case ActionType.DELETE_CART:
       const cardIdDelete = action.payload.id
+      let totalPrice = 0
+      state.data.map(cart => {
+        if (cart.id === cardIdDecrement) {
+          totalPrice += cart.count * cart.price
+        }
+      })
       const updatedDataDecrement = state.data.filter(
         cart => cart.id !== cardIdDelete
       )
       return {
         ...state,
         count: state.count - 1,
+        total: state.total - totalPrice,
         data: updatedDataDecrement,
       }
     default:
