@@ -14,6 +14,7 @@ import {
   alertError,
   alertSuccess,
 } from '../../redux/actions/alert'
+import { IconLoader2 } from '@tabler/icons-react'
 
 export default function EditProduct({ data }) {
   const dispatch = useDispatch()
