@@ -23,7 +23,6 @@ export default function index() {
           }
         />
         <Route
-          exact
           path="/cart"
           element={
             <Layout>
