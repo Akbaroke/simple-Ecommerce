@@ -142,7 +142,7 @@ export default function Cart() {
       <div className={style.footer}>
         <span></span>
         <div className={style.summary}>
-          <h3>Summary Cart</h3>
+          {/* <h3>Summary Cart</h3> */}
         </div>
       </div>
     </>
