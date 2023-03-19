@@ -10,6 +10,7 @@ import {
   modalAdd,
   modalEdit,
 } from '../../redux/actions/modal'
+import CardProductSkeleton from '../../components/Skeleton/CardProductSkeleton'
 
 export default function Home() {
   const [products, setProducts] = useState([])
@@ -32,7 +33,9 @@ export default function Home() {
   }, [data])
 
   return loading ? (
-    <h1>Loading...</h1>
+    <div className={style.loadingArea}>
+      <CardProductSkeleton cards={4} />
+    </div>
   ) : (
     <>
       <div className={style.body}>

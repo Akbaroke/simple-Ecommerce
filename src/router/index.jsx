@@ -4,7 +4,6 @@ import {
   Route,
   Routes,
 } from 'react-router-dom'
-import Topbar from '../components/Topbar/Topbar'
 import Cart from '../pages/Cart/Cart'
 import Home from '../pages/Home/Home'
 import Layout from '../components/Layout'

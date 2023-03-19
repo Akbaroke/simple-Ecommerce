@@ -62,7 +62,7 @@ const reducerCart = (state = initState, action) => {
       const cardIdDelete = action.payload.id
       let totalPrice = 0
       state.data.map(cart => {
-        if (cart.id === cardIdDecrement) {
+        if (cart.id === cardIdDelete) {
           totalPrice += cart.count * cart.price
         }
       })

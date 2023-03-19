@@ -12,10 +12,9 @@ import {
   incrementCart,
 } from '../../redux/actions/cart'
 import {
-  alertClose,
+  alertError,
   alertSuccess,
 } from '../../redux/actions/alert'
-import SaveCart from '../../services/SaveCart'
 
 export default function CardProduct({
   id,
@@ -39,6 +38,12 @@ export default function CardProduct({
           alertSuccess('Successfully added to cart.')
         )
       }
+    }else{
+      dispatch(
+        alertError(
+          'Failed to add to cart, because stock has been sold out.'
+        )
+      )
     }
   }
 

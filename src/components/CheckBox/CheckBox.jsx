@@ -1,12 +1,13 @@
 import { IconCheck } from '@tabler/icons-react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import style from './style.module.scss'
 
-export default function CheckBox({
-  check = false,
-  children,
-}) {
+export default function CheckBox({ check, children }) {
   const [isCheck, setIsCheck] = useState(check)
+
+  useEffect(() => {
+    setIsCheck(check)
+  }, [check])
 
   return (
     <span

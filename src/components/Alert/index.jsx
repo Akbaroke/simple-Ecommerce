@@ -32,6 +32,6 @@ export default function Alert() {
 
 const mountAnimation1 = `
   0% {opacity: 0}
-  0% {left: -300px}
+  0% {left: -200px}
   100% {opacity: 1}
 `

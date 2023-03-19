@@ -11,16 +11,20 @@ export default function Topbar() {
   const location = useLocation()
   return (
     <div className={style.topbar}>
-      <img src={LOGO} alt="logo" className={style.logo} />
+      <img
+        src={LOGO}
+        alt="logo"
+        className={style.logo}
+        onClick={() => navigate('/')}
+      />
       <div
+        onClick={() => navigate('/cart')}
         className={
           location.pathname === '/cart'
             ? style.cartFocus
             : style.cart
         }>
-        <IconShoppingCart
-          onClick={() => navigate('/cart')}
-        />
+        <IconShoppingCart />
         {count > 0 && <span>{count}</span>}
       </div>
     </div>
