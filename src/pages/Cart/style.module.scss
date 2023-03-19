@@ -32,8 +32,11 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 50%;
+  overflow: scroll;
   gap: 20px;
   margin-top: 20px;
+  position: relative;
 }
 
 .cardCart {
@@ -98,5 +101,18 @@
   p {
     font-size: 10px;
     font-weight: 700;
+  }
+}
+
+
+.footer{
+  & > span {
+    width: 100%;
+    height: 60px;
+    display: block;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 28.28%);
+    top: -30px;
   }
 }

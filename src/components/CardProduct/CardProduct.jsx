@@ -38,7 +38,7 @@ export default function CardProduct({
           alertSuccess('Successfully added to cart.')
         )
       }
-    }else{
+    } else {
       dispatch(
         alertError(
           'Failed to add to cart, because stock has been sold out.'
