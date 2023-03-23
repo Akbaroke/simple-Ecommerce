@@ -33,8 +33,7 @@ export default function Layout({ children }) {
       <Topbar />
       <div
         style={{
-          padding: '20px 10px',
-          paddingBottom: '100px',
+          padding: '20px',
           overflow: 'scroll',
           height: '100vh',
         }}>

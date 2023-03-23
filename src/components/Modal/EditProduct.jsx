@@ -90,7 +90,7 @@ export default function EditProduct({ data }) {
             type="text"
             name="price"
             placeholder="10000"
-            maxLength={10}
+            maxLength={9}
             onKeyDown={e => NumberOnly(e)}
             value={price}
             onChange={e => setPrice(e.target.value)}
@@ -102,7 +102,7 @@ export default function EditProduct({ data }) {
             type="text"
             name="stock"
             placeholder="1"
-            maxLength={10}
+            maxLength={5}
             onKeyDown={e => NumberOnly(e)}
             value={stock}
             onChange={e => setStock(e.target.value)}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import style from './style.module.scss'
 import {
+  IconLoader2,
   IconMinus,
   IconPlus,
   IconTrash,
@@ -18,12 +19,20 @@ import {
   alertError,
   alertSuccess,
 } from '../../redux/actions/alert'
+import Button from '../../components/Button/Button'
+import { IconCheck } from '@tabler/icons-react'
+import { useNavigate } from 'react-router-dom'
 
 export default function Cart() {
-  const { data } = useSelector(state => state.cart)
+  const { count, total, data } = useSelector(
+    state => state.cart
+  )
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const [deletes, setDeletes] = useState([])
   const [isAllChecked, setIsAllChecked] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [order, setOrder] = useState(false)
   let dataId = []
 
   function handleAllCheck() {
@@ -70,7 +79,17 @@ export default function Cart() {
     data?.map(item => dataId.push(item.id))
   }, [data])
 
-  return (
+  const handleClickOrder = () => {
+    setIsLoading(true)
+    setTimeout(() => {
+      setOrder(true)
+      setIsLoading(false)
+    }, 500)
+  }
+
+  return order ? (
+    <SuccessOrder total={total} />
+  ) : (
     <>
       <div className={style.head}>
         <span onClick={handleAllCheck}>
@@ -142,9 +161,48 @@ export default function Cart() {
       <div className={style.footer}>
         <span></span>
         <div className={style.summary}>
-          {/* <h3>Summary Cart</h3> */}
+          <h3>Summary Cart</h3>
+          <div>
+            <div>
+              <p>Total Item</p>
+              <p>Total Price</p>
+            </div>
+            <div>
+              <p>{count}</p>
+              <p>{RupiahFormat(total)}</p>
+            </div>
+          </div>
+        </div>
+        <div className={style.btn}>
+          <Button onClick={() => navigate('/')}>
+            Back
+          </Button>
+          <Button
+            solid="true"
+            onClick={isLoading ? null : handleClickOrder}>
+            {isLoading ? <IconLoader2 /> : 'Place Order'}
+          </Button>
         </div>
       </div>
     </>
+  )
+}
+
+const SuccessOrder = ({ total }) => {
+  const navigate = useNavigate()
+
+  return (
+    <div className={style.order}>
+      <IconCheck />
+      <div>
+        <h2>Order successful!</h2>
+        <p>thank you for shopping</p>
+      </div>
+      <div>
+        <p>AMOUNT PAID</p>
+        <h3>{RupiahFormat(total)}</h3>
+      </div>
+      <Button onClick={() => navigate('/')}>Back</Button>
+    </div>
   )
 }
