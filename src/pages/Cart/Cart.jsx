@@ -46,9 +46,9 @@ export default function Cart() {
   }
 
   useEffect(() => {
-    if (deletes.length === dataId.length) {
-      setIsAllChecked(true)
-    }
+    deletes.length === dataId.length
+      ? setIsAllChecked(true)
+      : setIsAllChecked(false)
     if (deletes.length === 0) {
       setIsAllChecked(false)
     }
