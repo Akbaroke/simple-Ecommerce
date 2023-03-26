@@ -10,5 +10,6 @@ const ActionType = {
   MODAL_ADD: 'MODAL_ADD',
   MODAL_DELETE: 'MODAL_DELETE',
   MODAL_CLOSE: 'MODAL_CLOSE',
+  RESET_CART: 'RESET_CART',
 }
 export default ActionType

@@ -75,6 +75,12 @@ const reducerCart = (state = initState, action) => {
         total: state.total - totalPrice,
         data: updatedDataDecrement,
       }
+    case ActionType.RESET_CART:
+      return {
+        count: 0,
+        total: 0,
+        data: [],
+      }
     default:
       return state
   }

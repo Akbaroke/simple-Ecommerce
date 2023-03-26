@@ -31,3 +31,7 @@ export const deleteCart = id => ({
     id,
   },
 })
+
+export const resetCart = () => ({
+  type: ActionType.RESET_CART,
+})

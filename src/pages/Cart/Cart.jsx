@@ -14,6 +14,7 @@ import {
   decrementCart,
   deleteCart,
   incrementCart,
+  resetCart,
 } from '../../redux/actions/cart'
 import {
   alertError,
@@ -190,6 +191,13 @@ export default function Cart() {
 
 const SuccessOrder = ({ total }) => {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const [price, setPrice] = useState(0)
+
+  useEffect(() => {
+    setPrice(total)
+    dispatch(resetCart())
+  }, [])
 
   return (
     <div className={style.order}>
@@ -200,7 +208,7 @@ const SuccessOrder = ({ total }) => {
       </div>
       <div>
         <p>AMOUNT PAID</p>
-        <h3>{RupiahFormat(total)}</h3>
+        <h3>{RupiahFormat(price)}</h3>
       </div>
       <Button onClick={() => navigate('/')}>Back</Button>
     </div>

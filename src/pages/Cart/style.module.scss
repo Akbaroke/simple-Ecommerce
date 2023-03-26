@@ -108,7 +108,9 @@
 .footer{
   border-top: 1px solid #f3f3f3;
   padding: 25px 35px;
+  // position: absolute;
   position: relative;
+  bottom: 0;
 
   & > span {
     width: 100%;
